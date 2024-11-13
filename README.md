@@ -1,7 +1,4 @@
 ## Portfolio
-
-Welcome to my portfolio! This project showcases my work as a Full Stack Software Developer. Below you'll find information about the technologies I use, how to set up the project, and more.
-
 ### Table of Contents
 - [About](#about)
 - [Technologies](#technologies)
