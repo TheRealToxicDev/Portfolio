@@ -11,6 +11,9 @@
   transition: 0.3s all ease-in-out;
   outline: none;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .scroll:hover {
