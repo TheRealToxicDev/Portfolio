@@ -79,7 +79,7 @@ export const Contact = () => {
             </p>
           </Reveal>
           <Reveal width="100%">
-            <Link href="mailto:heyitsshiva@protonmain.me">
+            <Link href="mailto:hey@toxicdev.me">
               <div className={styles.contactEmail}>
                 <AiFillMail size="2.4rem" />
                 <span className={styles.contactSpan}>hey@toxicdev.me</span>
