@@ -1,40 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+## Portfolio
 
-## Getting Started
+Welcome to my portfolio! This project showcases my work as a Full Stack Software Developer. Below you'll find information about the technologies I use, how to set up the project, and more.
 
-First, run the development server:
+### Table of Contents
+- [About](#about)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Features](#features)
+- [Contact](#contact)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### About
+This portfolio is a collection of my projects and skills as a Full Stack Software Developer. It includes information about my background, the technologies I use, and examples of my work.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Technologies
+This project uses the following technologies:
+- **React**: A JavaScript library for building user interfaces.
+- **Next.js**: A React framework for server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Framer Motion**: A library for animations and gestures in React.
+- **EmailJS**: A service for sending emails directly from your client-side JavaScript.
+- **React Icons**: A library for including popular icons in your React projects.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Setup
+To set up this project locally, follow these steps:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/your-username/your-repo-name.git
+    cd your-repo-name
+    ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+2. **Install dependencies**:
+    ```sh
+    npm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Create a `.env` file**:
+    ```sh
+    touch .env
+    ```
 
-## Learn More
+    Add your environment variables to the [.env](http://_vscodecontentref_/1) file:
+    ```env
+    NEXT_PUBLIC_SERVICE_ID=your_service_id
+    NEXT_PUBLIC_TEMPLATE_ID=your_template_id
+    NEXT_PUBLIC_USER_ID=your_user_id
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server**:
+    ```sh
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Usage
+To use this project, navigate through the different sections to learn more about my skills and projects. You can also contact me directly through the contact form.
 
-## Deploy on Vercel
+### Features
+- **Responsive Design**: The portfolio is fully responsive and works on all devices.
+- **Animations**: Smooth animations using Framer Motion.
+- **Email Integration**: Contact form integrated with EmailJS for direct communication.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Thank you for visiting my portfolio!

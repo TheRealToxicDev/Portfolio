@@ -9,12 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "@emailjs/browser": "^4.4.1",
+    "animejs": "^3.2.2",
+    "dotenv": "^16.4.5",
+    "framer-motion": "^11.11.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-toastify": "^10.0.6",
+    "react-icons": "^5.3.0",
+    "react-typing-effect": "^2.0.5",
     "next": "15.0.3"
   },
   "devDependencies": {
     "typescript": "^5",
+    "@types/react-typing-effect": "^2.0.7",
+    "@types/animejs": "^3.1.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -22,5 +31,6 @@
     "tailwindcss": "^3.4.1",
     "eslint": "^8",
     "eslint-config-next": "15.0.3"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
