@@ -25,6 +25,7 @@
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   cursor: auto;
   position: relative;
+  margin: auto;
 }
 
 .modalImage {
@@ -97,6 +98,7 @@
   top: 1.2rem;
   right: 1.2rem;
   cursor: pointer;
+  z-index: 10;
 }
 
 @media (max-width: 790px) {

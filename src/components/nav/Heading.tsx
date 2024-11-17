@@ -36,13 +36,13 @@ export const Heading = () => {
           <RiMenuUnfoldLine className="text-white text-5xl" onClick={handleMobileViewOpen} />
         )}
         <div
-          className={`absolute top-12 p-5 bg-background-dark rounded-lg ${openMobile ? 'block' : 'hidden'}`}
+          className={`absolute top-12 p-5 w-60 bg-background-dark rounded-lg ${openMobile ? 'block' : 'hidden'}`}
           onClick={handleMobileViewClose}
           ref={toggleref}
         >
           <nav className="flex flex-col gap-5">
             <a
-              href="#"
+              href="/"
               onClick={() => {
                 setSelected("");
               }}
@@ -51,7 +51,7 @@ export const Heading = () => {
               Home
             </a>
             <a
-              href="#about"
+              href="/#about"
               onClick={() => {
                 setSelected("about");
               }}
@@ -59,9 +59,19 @@ export const Heading = () => {
             >
               About
             </a>
-            <a href="#projects" onClick={() => setSelected("projects")} className="text-text font-bold text-md">Projects</a>
             <a
-              href="#contact"
+              href="/blog"
+              onClick={() => {
+                setSelected("blog");
+              }}
+              className="text-text font-bold text-md"
+            >
+              Blog
+            </a>
+            <a href="/#projects" onClick={() => setSelected("projects")} className="text-text font-bold text-md">Projects</a>
+            <a href="/#starred-repos" onClick={() => setSelected("starred")} className="text-text font-bold text-md">Repos</a>
+            <a
+              href="/#contact"
               onClick={() => setSelected("contact")}
               className="text-text font-bold text-md"
             >

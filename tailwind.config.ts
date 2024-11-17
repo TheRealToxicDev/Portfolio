@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import markdown from "./presets/markdown";
 
 export default {
   content: [
@@ -25,5 +26,6 @@ export default {
       },
     },
   },
+  presets: [markdown],
   plugins: [],
 } satisfies Config;

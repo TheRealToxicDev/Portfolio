@@ -1,15 +1,20 @@
 {
   "name": "toxicdev.me",
   "version": "2.0.0",
-  "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "author": "TheRealToxicDev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRealToxicDev/Portfolio.git"
+  },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@mapbox/rehype-prism": "^0.9.0",
     "animejs": "^3.2.2",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.11.11",
@@ -18,19 +23,31 @@
     "react-toastify": "^10.0.6",
     "react-icons": "^5.3.0",
     "react-typing-effect": "^2.0.5",
-    "next": "15.0.3"
+    "react-loading-skeleton": "^3.5.0",
+    "reading-time": "^1.5.0",
+    "rehype-accessible-emojis": "^0.3.2",
+    "rehype-katex": "^7.0.1",
+    "remark-code-titles": "^0.1.2",
+    "remark-autolink-headings": "^8.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-slug": "^8.0.0",
+    "next": "15.0.3",
+    "next-mdx-remote": "^5.0.0",
+    "next-remote-watch": "^2.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/react-typing-effect": "^2.0.7",
     "@types/animejs": "^3.1.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "gray-matter": "^4.0.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.3"
+    "@tailwindcss/typography": "^0.5.15",
+    "typescript": "^5"
   },
-  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+  "packageManager": "bun@1.1.34"
 }

@@ -43,19 +43,14 @@ export const ProjectModal = ({
 
   return (
     <div className={styles.modal} onClick={() => setIsOpen(false)}>
-      <button className={styles.closeModalBtn} onClick={() => setIsOpen(false)}>
-        <MdClose />
-      </button>
-
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         onClick={(e) => e.stopPropagation()}
         className={styles.modalCard}
       >
-        <div className="relative">
+        <div className={styles.modalImage}>
           <Image
-            className={styles.modalImage}
             src={imgSrc}
             height={300}
             width={660}
@@ -67,6 +62,9 @@ export const ProjectModal = ({
               Deprecated
             </div>
           )}
+          <button className={styles.closeModalBtn} onClick={() => setIsOpen(false)}>
+            <MdClose />
+          </button>
         </div>
         <div className={styles.modalContent}>
           <h4>{title}</h4>

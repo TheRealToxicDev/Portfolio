@@ -40,7 +40,7 @@ export const SideBar = () => {
         initial={{ x: -70 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        href="#"
+        href="/"
         onClick={() => {
           setSelected("#");
         }}
@@ -52,7 +52,7 @@ export const SideBar = () => {
         initial={{ x: -70 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        href="#about"
+        href="/#about"
         onClick={() => {
           setSelected("about");
         }}
@@ -63,8 +63,20 @@ export const SideBar = () => {
       <motion.a
         initial={{ x: -70 }}
         animate={{ x: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        href="/blog"
+        onClick={() => {
+          setSelected("blog");
+        }}
+        className={selected === "blog" ? styles.selected : ""}
+      >
+        Blog
+      </motion.a>
+      <motion.a
+        initial={{ x: -70 }}
+        animate={{ x: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        href="#projects"
+        href="/#projects"
         onClick={() => setSelected("projects")}
         className={selected === "projects" ? styles.selected : ""}
       >
@@ -74,7 +86,17 @@ export const SideBar = () => {
         initial={{ x: -70 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        href="#contact"
+        href="/#starred-repos"
+        onClick={() => setSelected("starred-repos")}
+        className={selected === "starred-repos" ? styles.selected : ""}
+      >
+        Repositories
+      </motion.a>
+      <motion.a
+        initial={{ x: -70 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        href="/#contact"
         onClick={() => setSelected("contact")}
         className={selected === "contact" ? styles.selected : ""}
       >
