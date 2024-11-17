@@ -77,5 +77,35 @@ const projects = [
         </p>
       </>
     ),
+  },
+  {
+    title: "LinkCord",
+    imgSrc: "/projects/linkcord.png",
+    code: "https://github.com/LinkCordApp",
+    projectLink: "https://linkcord.lol",
+    tech: ["Typescript", "NextJs", "TailwindCss", "Firebase"],
+    description: "Create your custom Profile Page add your Social Media Links and share it for the world to see.",
+    modalContent: (
+      <>
+        <p>
+          Link Cord is your Centralized solution for all your Link in Bio needs. Create a Custom Profile, Add your Social Media Links and share it for the whole world to see.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "NodeByte Hosting",
+    imgSrc: "/projects/nodebyte.png",
+    code: "https://github.com/NodeByteHosting",
+    projectLink: "https://nodebyte.host",
+    tech: ["Typescript", "NextJs", "TailwindCss", "MySQL", "React"],
+    description: "The cheapest and best hosting company that has the right services for you.",
+    modalContent: (
+      <>
+        <p>
+          NodeByte Hosting opened it doors in March 2024 and since then we have ensured we provide the best support and the best services to you and our clients.
+        </p>
+      </>
+    ),
   }
 ];
