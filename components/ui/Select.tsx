@@ -65,7 +65,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
             {isOpen && (
                 <>
                     {/* Dropdown List */}
-                    <ul className="absolute z-20 w-full mt-2 bg-gray-900 text-white rounded-lg shadow-xl max-h-60 overflow-auto border border-gray-700 transition-transform duration-300 ease-out">
+                    <ul className="absolute z-20 w-full mt-2 bg-gray-900 text-white rounded-lg shadow-xl overflow-auto border border-gray-700 transition-transform duration-300 ease-out">
                         {options.map((option) => (
                             <li
                                 key={option.value}

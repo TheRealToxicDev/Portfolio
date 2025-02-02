@@ -10,13 +10,19 @@ interface BlogFooterProps {
         icon: string;
     };
     readTime: string;
+    slug: string;
     tags?: string[];
     date: string;
 }
 
-const BlogFooter: React.FC<BlogFooterProps> = ({ author, readTime, tags, date }) => {
-    const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
-
+const BlogFooter: React.FC<BlogFooterProps> = ({
+    author,
+    readTime,
+    tags,
+    date,
+    slug,
+}) => {
+    const shareUrl = `https://toxicdev.me/blog/${slug}`;
     return (
         <div className="flex flex-col gap-4 lg:px-8">
             <Link
@@ -72,7 +78,9 @@ const BlogFooter: React.FC<BlogFooterProps> = ({ author, readTime, tags, date })
             <h3>Share</h3>
             <div className="flex flex-row gap-4 text-sk">
                 <a
-                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`}
+                    href={`https://twitter.com/intent/tweet?text=Hey%20guys,%20check%20out%20this%20new%20blog%20Toxic%20posted!%20&url=${encodeURIComponent(
+                        shareUrl
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500"
@@ -80,7 +88,9 @@ const BlogFooter: React.FC<BlogFooterProps> = ({ author, readTime, tags, date })
                     <FaTwitter />
                 </a>
                 <a
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                        shareUrl
+                    )}&quote=Hey%20guys,%20check%20out%20this%20new%20blog%20Toxic%20posted!`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-700"
@@ -88,7 +98,9 @@ const BlogFooter: React.FC<BlogFooterProps> = ({ author, readTime, tags, date })
                     <FaFacebook />
                 </a>
                 <a
-                    href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}`}
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                        shareUrl
+                    )}&title=Hey%20guys,%20check%20out%20this%20new%20blog%20Toxic%20posted!`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600"

@@ -13,7 +13,11 @@ type Params = {
     slug: string;
 };
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: {
+    params: Params;
+}): Promise<Metadata> {
     const page = allBlogs.find((blog) => blog.slug === params.slug);
 
     if (!page) {
@@ -29,7 +33,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
         openGraph: {
             url: `https://toxicdev.me/blog/${page.slug}`,
             title: page.title,
-            description: page.description || "A blog post on Toxic Dev's website.",
+            description:
+                page.description || "A blog post on Toxic Dev's website.",
             images: "/banners/blog_meta.png",
             siteName: "Toxic Dev",
         },
@@ -37,7 +42,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
             card: "summary_large_image",
             creator: "@TheRealToxicDev",
             title: page.title,
-            description: page.description || "A blog post on Toxic Dev's website.",
+            description:
+                page.description || "A blog post on Toxic Dev's website.",
             images: "/banners/blog_meta.png",
         },
         metadataBase: absoluteUrl(),
@@ -55,12 +61,18 @@ export default function BlogPage({ params }: { params: Params }) {
         );
     }
 
-    const author = blogMetum.authors.find((author) => author.name === page.author);
+    const author = blogMetum.authors.find(
+        (author) => author.name === page.author
+    );
     const readTimeResult = readTime(page.body.raw);
 
     return (
         <>
-            <BlogHero title={page.title} description={page.description as string} image={page.image} />
+            <BlogHero
+                title={page.title}
+                description={page.description as string}
+                image={page.image}
+            />
             <article className="flex flex-col gap-6 z-[2] py-16 bg-black-100">
                 <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-purple-100/80 to-transparent dark:from-purple-900/50 dark:to-transparent -z-[1]" />
                 <Link
@@ -89,6 +101,7 @@ export default function BlogPage({ params }: { params: Params }) {
                                 readTime={readTimeResult.text}
                                 tags={page.tags}
                                 date={page.date}
+                                slug={page.slug}
                             />
                         )}
                     </div>

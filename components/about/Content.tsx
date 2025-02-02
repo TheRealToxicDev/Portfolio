@@ -106,7 +106,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
     const filteredRepos = useMemo(() => {
         let result = [...repos];
 
-        if (filter) {
+        if (filter && filter !== "All Languages") {
             result = result.filter((repo) => repo.language === filter);
         }
 
@@ -119,18 +119,19 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
         return result;
     }, [repos, filter, sortBy]);
 
-    const languageOptions = useMemo(
-        () => [
-            { value: "", label: "All Languages" },
-            ...Array.from(
-                new Set(repos.map((repo) => repo.language).filter(Boolean))
-            ).map((language) => ({
-                value: language as string,
-                label: language as string,
-            })),
-        ],
-        [repos]
-    );
+    const languageOptions = useMemo(() => {
+        const languages = Array.from(
+            new Set(repos.map((repo) => repo.language).filter(Boolean))
+        ).map((language) => ({
+            value: language as string,
+            label: language as string,
+        }));
+
+        return [
+            { value: "All Languages", label: "All Languages" },
+            ...languages.sort((a, b) => a.label.localeCompare(b.label)),
+        ];
+    }, [repos]);
 
     const sortOptions = [
         { value: "", label: "Sort By" },
