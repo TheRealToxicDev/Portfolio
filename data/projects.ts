@@ -72,8 +72,10 @@ export const projects = [
       "TypeScript"
     ],
     screenshots: [
-      "/images/nodebyte-ltd-1.png",
-      "/images/nodebyte-ltd-2.png"
+      "/previews/nodebyte.co.uk/nbltd-preview-1.png",
+      "/previews/nodebyte.co.uk/nbltd-preview-2.png",
+      "/previews/nodebyte.co.uk/nbltd-preview-3.png",
+      "/previews/nodebyte.co.uk/nbltd-preview-4.png"
     ]
   },
   {
@@ -105,8 +107,10 @@ export const projects = [
       "PostgreSQL"
     ],
     screenshots: [
-      "/images/infinity-bot-list-1.png",
-      "/images/infinity-bot-list-2.png"
+      "/previews/infinitybots.gg/ibl-preview-1.png",
+      "/previews/infinitybots.gg/ibl-preview-2.png",
+      "/previews/infinitybots.gg/ibl-preview-3.png",
+      "/previews/infinitybots.gg/ibl-preview-4.png"
     ]
   },
   {
@@ -138,8 +142,10 @@ export const projects = [
       "PostgreSQL"
     ],
     screenshots: [
-      "/images/netsocial-1.png",
-      "/images/netsocial-2.png"
+      "/previews/netsocial.app/ns-preview-1.png",
+      "/previews/netsocial.app/ns-preview-2.png",
+      "/previews/netsocial.app/ns-preview-3.png",
+      "/previews/netsocial.app/ns-preview-4.png"
     ]
   }
 ];
