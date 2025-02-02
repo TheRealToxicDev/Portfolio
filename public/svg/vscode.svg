@@ -1,0 +1,85 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 1200 800"
+  width="1200"
+  height="800"
+>
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#1e1e1e" />
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="60" height="800" fill="#252526" />
+  <!-- Sidebar Icons -->
+  <circle cx="30" cy="50" r="8" fill="#60aaff" />
+  <circle cx="30" cy="90" r="8" fill="#858585" />
+  <circle cx="30" cy="130" r="8" fill="#858585" />
+
+  <!-- Top Bar -->
+  <rect x="60" y="0" width="1140" height="40" fill="#3c3c3c" />
+  <!-- File Name -->
+  <text x="70" y="25" fill="#d4d4d4" font-family="monospace" font-size="16">
+    DevOpsAnimation.tsx - Visual Studio Code
+  </text>
+
+  <!-- Code Editor Area -->
+  <rect x="60" y="40" width="1140" height="760" fill="#1e1e1e" />
+  <!-- Code Content -->
+  <text x="80" y="70" fill="#d4d4d4" font-family="monospace" font-size="14">
+    "use client";
+  </text>
+  <text x="80" y="100" fill="#569cd6" font-family="monospace" font-size="14">
+    import React from 'react';
+  </text>
+  <text x="80" y="130" fill="#569cd6" font-family="monospace" font-size="14">
+    import Lottie from 'react-lottie';
+  </text>
+  <text x="80" y="160" fill="#569cd6" font-family="monospace" font-size="14">
+    import animationData from '@/public/animations/devops.json';
+  </text>
+  <text x="80" y="200" fill="#dcdcaa" font-family="monospace" font-size="14">
+    const DevOpsAnimation = () =&gt; &#123;
+  </text>
+  <text x="100" y="230" fill="#d7ba7d" font-family="monospace" font-size="14">
+    const defaultOptions = &#123;
+  </text>
+  <text x="120" y="260" fill="#d7ba7d" font-family="monospace" font-size="14">
+    loop: true,
+  </text>
+  <text x="120" y="290" fill="#d7ba7d" font-family="monospace" font-size="14">
+    autoplay: true,
+  </text>
+  <text x="120" y="320" fill="#d7ba7d" font-family="monospace" font-size="14">
+    animationData: animationData,
+  </text>
+  <text x="120" y="350" fill="#d7ba7d" font-family="monospace" font-size="14">
+    rendererSettings: &#123;
+  </text>
+  <text x="140" y="380" fill="#d7ba7d" font-family="monospace" font-size="14">
+    preserveAspectRatio: 'xMidYMid slice'
+  </text>
+  <text x="120" y="410" fill="#d7ba7d" font-family="monospace" font-size="14">
+    &#125;
+  </text>
+  <text x="100" y="440" fill="#dcdcaa" font-family="monospace" font-size="14">
+    &#125;;
+  </text>
+  <text x="80" y="470" fill="#dcdcaa" font-family="monospace" font-size="14">
+    return (
+  </text>
+  <text x="100" y="500" fill="#4ec9b0" font-family="monospace" font-size="14">
+    &lt;svg width="689" height="541" viewBox="0 0 689 541" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+  </text>
+  <text x="120" y="530" fill="#dcdcaa" font-family="monospace" font-size="14">
+    ...
+  </text>
+  <text x="80" y="560" fill="#dcdcaa" font-family="monospace" font-size="14">
+    );
+  </text>
+  <text x="80" y="590" fill="#dcdcaa" font-family="monospace" font-size="14">
+    &#125;;
+  </text>
+  <text x="80" y="620" fill="#569cd6" font-family="monospace" font-size="14">
+    export default DevOpsAnimation;
+  </text>
+</svg>

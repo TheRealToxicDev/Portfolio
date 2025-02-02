@@ -1,0 +1,103 @@
+---
+title: "Fun Things to Do in React"
+description: "Explore some fun and interesting things you can do with React, including animations, hooks, and more."
+date: "2025-01-18"
+author: "Toxic Dev"
+image: /banners/blog_post.png
+tags: 
+  - React
+  - JavaScript
+  - Web Development
+---
+
+# Introduction
+
+React is a powerful and flexible JavaScript library for building user interfaces. In this blog post, I'll explore some fun and interesting things you can do with React, including animations, hooks, and more.
+
+## Animations with React Spring
+
+React Spring is a popular library for creating animations in React. It provides a simple and intuitive API for creating smooth and interactive animations.
+
+### Example: Bouncing Ball Animation
+
+```jsx
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
+
+const BouncingBall = () => {
+  const props = useSpring({
+    from: { transform: 'translateY(0px)' },
+    to: { transform: 'translateY(-100px)' },
+    config: { tension: 180, friction: 12 },
+    loop: { reverse: true },
+  });
+
+  return <animated.div style={props} className="ball" />;
+};
+
+export default BouncingBall;
+```
+
+---
+
+## Custom Hooks
+Custom hooks are a powerful feature in React that allow you to encapsulate and reuse logic across your components.
+
+### Example: useWindowSize Hook
+```jsx
+import { useState, useEffect } from 'react';
+
+const useWindowSize = () => {
+  const [size, setSize] = useState([window.innerWidth, window.innerHeight]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return size;
+};
+
+export default useWindowSize;
+```
+
+---
+
+## Context API for State Management
+The Context API is a powerful tool for managing state in React applications. It allows you to share state across your components without prop drilling.
+
+### Example: Theme Context
+```jsx
+import React, { createContext, useContext, useState } from 'react';
+
+const ThemeContext = createContext();
+
+export const useTheme = () => useContext(ThemeContext);
+
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+```
+
+---
+
+## Conclusion
+React offers a wide range of features and tools that make it a fun and powerful library for building user interfaces. Whether you're creating animations, custom hooks, or managing state with the Context API, there's always something new and exciting to explore in React.
+
+---
+
+I hope you found these fun things to do in React helpful. If you have any questions or comments, feel free to reach out to me. Happy coding!

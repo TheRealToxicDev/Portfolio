@@ -1,0 +1,20 @@
+{
+  "authors": [
+    {
+      "name": "Toxic Dev",
+      "title": "Full-Stack Developer",
+      "icon": "/logo.png",
+      "type": "Author",
+      "_raw": {}
+    }
+  ],
+  "_id": "blog/meta.json",
+  "_raw": {
+    "sourceFilePath": "blog/meta.json",
+    "sourceFileName": "meta.json",
+    "sourceFileDir": "blog",
+    "contentType": "data",
+    "flattenedPath": "blog/meta"
+  },
+  "type": "BlogMeta"
+}

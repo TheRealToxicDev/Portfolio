@@ -1,0 +1,27 @@
+{
+  "title": "Hello World",
+  "description": "Welcome to my new blog!",
+  "image": "/banners/blog_post.png",
+  "author": "Toxic Dev",
+  "date": "2025-01-27T00:00:00.000Z",
+  "tags": [
+    "Welcome",
+    "First Post",
+    "Introduction\r"
+  ],
+  "body": {
+    "raw": "\r\n## Introduction\r\n\r\nHello everyone, welcome to my brand new blog. this blog will serve as a place where i can post updates on\r\nmy projects, personal life, development ideas and more. Overtime im hoping it will grow into a place where i\r\ncan inspire and help other developers with their future endeavors!\r\n\r\ni am also working on new things and experimenting with ways to make my current projects and ideas even better\r\nthen before, i have years of development experience and enjoy putting it all to good use.\r\n\r\n---\r\n\r\n## Plans for this website\r\n\r\nOvertime i will expand this portfolio and blog and add as much as i can to allow you to get to know me better,\r\ninteract with my projects and see the world through my eyes. As of right now the website is good enough for\r\nproduction use but i am planning on adding more features such as code snippets, wider project showcase and\r\nmore in the very near future\r\n\r\n---\r\n\r\n[[Top]](#top)",
+    "code": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var o in e)i(n,o,{get:e[o],enumerable:!0})},s=(n,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!g.call(n,r)&&r!==o&&i(n,r,{get:()=>e[r],enumerable:!(a=m(e,r))||a.enumerable});return n};var y=(n,e,o)=>(o=n!=null?p(w(n)):{},s(e||!n||!n.__esModule?i(o,\"default\",{value:n,enumerable:!0}):o,n)),x=n=>s(i({},\"__esModule\",{value:!0}),n);var d=f((k,l)=>{l.exports=_jsx_runtime});var j={};b(j,{default:()=>c,frontmatter:()=>v});var t=y(d()),v={title:\"Hello World\",description:\"Welcome to my new blog!\",author:\"Toxic Dev\",image:\"/banners/blog_post.png\",date:\"2025-01-27\",tags:[\"Welcome\",\"First Post\",\"Introduction\"]};function h(n){let e={a:\"a\",h2:\"h2\",hr:\"hr\",p:\"p\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{id:\"introduction\",children:\"Introduction\"}),`\n`,(0,t.jsx)(e.p,{children:`Hello everyone, welcome to my brand new blog. this blog will serve as a place where i can post updates on\\r\nmy projects, personal life, development ideas and more. Overtime im hoping it will grow into a place where i\\r\ncan inspire and help other developers with their future endeavors!`}),`\n`,(0,t.jsx)(e.p,{children:`i am also working on new things and experimenting with ways to make my current projects and ideas even better\\r\nthen before, i have years of development experience and enjoy putting it all to good use.`}),`\n`,(0,t.jsx)(e.hr,{}),`\n`,(0,t.jsx)(e.h2,{id:\"plans-for-this-website\",children:\"Plans for this website\"}),`\n`,(0,t.jsx)(e.p,{children:`Overtime i will expand this portfolio and blog and add as much as i can to allow you to get to know me better,\\r\ninteract with my projects and see the world through my eyes. As of right now the website is good enough for\\r\nproduction use but i am planning on adding more features such as code snippets, wider project showcase and\\r\nmore in the very near future`}),`\n`,(0,t.jsx)(e.hr,{}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.a,{href:\"#top\",children:\"[Top]\"})})]})}function c(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(h,{...n})}):h(n)}return x(j);})();\n;return Component;"
+  },
+  "_id": "blog/welcome.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/welcome.mdx",
+    "sourceFileName": "welcome.mdx",
+    "sourceFileDir": "blog",
+    "contentType": "mdx",
+    "flattenedPath": "blog/welcome"
+  },
+  "type": "Blog",
+  "url": "/blog/welcome",
+  "slug": "welcome"
+}

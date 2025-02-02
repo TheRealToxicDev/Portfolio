@@ -1,0 +1,114 @@
+---
+title: "Experimenting with Next.js"
+description: "Discover the powerful features of Next.js and how you can use them to build modern web applications."
+date: "2025-01-20"
+author: "Toxic Dev"
+image: /banners/blog_post.png
+tags: 
+  - Next.js
+  - React
+  - JavaScript
+  - Web Development
+---
+
+# Introduction
+
+Next.js is a powerful React framework that enables you to build modern web applications with ease. In this blog post, I'll explore some of the key features of Next.js and how you can use them to enhance your development experience.
+
+---
+
+## Static Site Generation (SSG)
+
+Next.js allows you to generate static pages at build time, providing fast and SEO-friendly web applications.
+
+### Example: Static Blog Page
+
+```jsx
+import { getAllPosts } from '@/lib/api';
+
+export async function getStaticProps() {
+  const posts = getAllPosts();
+  return {
+    props: { posts },
+  };
+}
+
+const Blog = ({ posts }) => (
+  <div>
+    <h1>Blog</h1>
+    <ul>
+      {posts.map((post) => (
+        <li key={post.slug}>
+          <a href={`/blog/${post.slug}`}>{post.title}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+export default Blog;
+```
+
+---
+
+## Server-Side Rendering (SSR)
+Next.js also supports server-side rendering, allowing you to render pages on the server for each request.
+
+### Example: Server-Side Rendered Page
+```jsx
+export async function getServerSideProps() {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+  return {
+    props: { data },
+  };
+}
+
+const DataPage = ({ data }) => (
+  <div>
+    <h1>Data</h1>
+    <pre>{JSON.stringify(data, null, 2)}</pre>
+  </div>
+);
+
+export default DataPage;
+```
+
+---
+
+## API Routes
+Next.js provides a built-in API routing system, allowing you to create API endpoints within your application.
+
+### Example: API Route
+```jsx
+export default function handler(req, res) {
+  res.status(200).json({ message: 'Hello from Next.js API!' });
+}
+```
+
+---
+
+## Image Optimization
+Next.js includes an Image component that optimizes images for better performance.
+
+### Example: Optimized Image
+```jsx
+import Image from 'next/image';
+
+const OptimizedImage = () => (
+  <div>
+    <Image src="/images/example.jpg" alt="Example" width={500} height={300} />
+  </div>
+);
+
+export default OptimizedImage;
+```
+
+---
+
+## Conclusion
+Next.js offers a wide range of features that make it a powerful framework for building modern web applications. Whether you're using static site generation, server-side rendering, API routes, or image optimization, Next.js provides the tools you need to create fast and efficient web applications.
+
+---
+
+I hope you found this exploration of Next.js helpful. If you have any questions or comments, feel free to reach out to me. Happy coding!

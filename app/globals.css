@@ -1,0 +1,346 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border !scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button {
+    @apply active:outline-none;
+  }
+}
+
+@layer utilities {
+  .heading {
+    @apply font-bold text-4xl md:text-5xl text-center;
+  }
+
+  .black-gradient {
+    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+  }
+}
+
+/* Base styles for the Markdown content */
+.markdown-body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+/* Headings */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #e2e8f0;
+}
+
+.markdown-body h1 {
+    font-size: 2em;
+    border-bottom: 2px solid #4a5568;
+    padding-bottom: 0.3em;
+}
+
+.markdown-body h2 {
+    font-size: 1.75em;
+    border-bottom: 1px solid #4a5568;
+    padding-bottom: 0.3em;
+}
+
+.markdown-body h3 {
+    font-size: 1.5em;
+}
+
+.markdown-body h4 {
+    font-size: 1.25em;
+}
+
+.markdown-body h5 {
+    font-size: 1em;
+}
+
+.markdown-body h6 {
+    font-size: 0.875em;
+    color: #a0aec0;
+}
+
+/* Paragraphs */
+.markdown-body p {
+    margin-bottom: 1em;
+}
+
+/* Links */
+.markdown-body a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+.markdown-body ul,
+.markdown-body ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+.markdown-body ul {
+    list-style-type: disc;
+}
+
+.markdown-body ol {
+    list-style-type: decimal;
+}
+
+.markdown-body ul li,
+.markdown-body ol li {
+    margin-bottom: 0.5em;
+}
+
+/* Task Lists */
+.markdown-body input[type="checkbox"] {
+    margin-right: 0.5em;
+}
+
+/* Blockquotes */
+.markdown-body blockquote {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    background-color: #333;
+    border-left: 0.25em solid #1e90ff;
+    color: #e2e8f0;
+    border-radius: 0.3em;
+}
+
+/* Code */
+.markdown-body code {
+    background-color: #333;
+    padding: 0.2em 0.4em;
+    border-radius: 0.3em;
+    font-family: 'Courier New', Courier, monospace;
+    color: #e2e8f0;
+}
+
+.markdown-body pre {
+    background-color: #333;
+    padding: 1em;
+    border-radius: 0.3em;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    color: #e2e8f0;
+}
+
+/* Syntax Highlighting */
+.markdown-body pre code {
+    display: block;
+    padding: 0;
+    color: inherit;
+    background: none;
+}
+
+/* Tables */
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.markdown-body th,
+.markdown-body td {
+    border: 1px solid #4a5568;
+    padding: 0.5em;
+}
+
+.markdown-body th {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+.markdown-body td {
+    background-color: #1a202c;
+}
+
+.markdown-body tr:nth-child(even) td {
+    background-color: #2a2a2a;
+}
+
+.markdown-body tr:hover td {
+    background-color: #333;
+}
+
+/* Horizontal Rules */
+.markdown-body hr {
+    border: 0;
+    height: 1px;
+    background: #4a5568;
+    margin: 2em 0;
+}
+
+/* Images */
+.markdown-body img {
+    max-width: 100%;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+
+/* Footnotes */
+.markdown-body .footnotes {
+    font-size: 0.875em;
+    color: #a0aec0;
+}
+
+.markdown-body .footnotes ol {
+    padding-left: 1em;
+}
+
+.markdown-body .footnotes li {
+    margin-bottom: 0.5em;
+}
+
+/* Strikethrough */
+.markdown-body del {
+    text-decoration: line-through;
+}
+
+/* Task Lists */
+.markdown-body input[type="checkbox"] {
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+/* Tables */
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.markdown-body th,
+.markdown-body td {
+    border: 1px solid #4a5568;
+    padding: 0.5em;
+}
+
+.markdown-body th {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+.markdown-body td {
+    background-color: #1a202c;
+}
+
+.markdown-body tr:nth-child(even) td {
+    background-color: #2a2a2a;
+}
+
+.markdown-body tr:hover td {
+    background-color: #333;
+}
+
+/* Horizontal Rules */
+.markdown-body hr {
+    border: 0;
+    height: 1px;
+    background: #4a5568;
+    margin: 2em 0;
+}
+
+/* Images */
+.markdown-body img {
+    max-width: 100%;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+
+/* Footnotes */
+.markdown-body .footnotes {
+    font-size: 0.875em;
+    color: #a0aec0;
+}
+
+.markdown-body .footnotes ol {
+    padding-left: 1em;
+}
+
+.markdown-body .footnotes li {
+    margin-bottom: 0.5em;
+}
