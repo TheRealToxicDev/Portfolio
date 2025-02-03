@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { RepoGrid, RepoGridItem } from "./RepoItem";
 import CustomSelect from "@/components/ui/Select";
 import StatsGridItem from "./StatsItem";
+import { TextReveal } from "@/components/ui/TextReveal";
 
 type ContentAreaProps = {
     selectedCategory: string;
@@ -14,8 +16,8 @@ type Repo = {
     description: string;
     html_url: string;
     language: string;
-    stars: number;
-    forks: number;
+    stargazers_count: number;
+    forks_count: number;
 };
 
 type Option = {
@@ -43,7 +45,8 @@ type Stats = {
     total_stars: number; // Newly added
     total_forks: number; // Newly added
     total_watchers: number; // Newly added
-    most_starred_repo: { // Newly added
+    most_starred_repo: {
+        // Newly added
         name: string;
         stars: number;
         url: string;
@@ -67,12 +70,12 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
         if (selectedCategory === "Public Repositories") {
             setLoading(true);
             fetch("/api/repos")
-                .then(response => response.json())
-                .then(data => {
+                .then((response) => response.json())
+                .then((data) => {
                     setRepos(data.repos);
                     setLoading(false);
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.error("Error fetching repos:", error);
                     setError("Failed to load repositories.");
                     setLoading(false);
@@ -80,12 +83,12 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
         } else if (selectedCategory === "GitHub Stats") {
             setLoading(true);
             fetch("/api/ghstats")
-                .then(response => response.json())
-                .then(data => {
+                .then((response) => response.json())
+                .then((data) => {
                     setStats(data.stats);
                     setLoading(false);
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.error("Error fetching stats:", error);
                     setError("Failed to load GitHub statistics.");
                     setLoading(false);
@@ -93,29 +96,49 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
         }
     }, [selectedCategory]);
 
-    const handleFilterChange = (selectedOption: Option | null) => {
+    const handleFilterChange = useCallback((selectedOption: Option | null) => {
         setFilter(selectedOption ? selectedOption.value : "");
-    };
+    }, []);
 
-    const handleSortChange = (selectedOption: Option | null) => {
+    const handleSortChange = useCallback((selectedOption: Option | null) => {
         setSortBy(selectedOption ? selectedOption.value : "");
-    };
+    }, []);
 
-    const applyFilters = (repos: Repo[]) => {
-        let filteredRepos = repos;
+    const filteredRepos = useMemo(() => {
+        let result = [...repos];
 
-        if (filter) {
-            filteredRepos = filteredRepos.filter(repo => repo.language === filter);
+        if (filter && filter !== "All Languages") {
+            result = result.filter((repo) => repo.language === filter);
         }
 
         if (sortBy === "stars") {
-            filteredRepos = filteredRepos.sort((a, b) => b.stars - a.stars);
+            result.sort((a, b) => b.stargazers_count - a.stargazers_count);
         } else if (sortBy === "forks") {
-            filteredRepos = filteredRepos.sort((a, b) => b.forks - a.forks);
+            result.sort((a, b) => b.forks_count - a.forks_count);
         }
 
-        return filteredRepos;
-    };
+        return result;
+    }, [repos, filter, sortBy]);
+
+    const languageOptions = useMemo(() => {
+        const languages = Array.from(
+            new Set(repos.map((repo) => repo.language).filter(Boolean))
+        ).map((language) => ({
+            value: language as string,
+            label: language as string,
+        }));
+
+        return [
+            { value: "All Languages", label: "All Languages" },
+            ...languages.sort((a, b) => a.label.localeCompare(b.label)),
+        ];
+    }, [repos]);
+
+    const sortOptions = [
+        { value: "", label: "Sort By" },
+        { value: "stars", label: "Most Stars" },
+        { value: "forks", label: "Most Forks" },
+    ];
 
     const renderContent = () => {
         if (error) {
@@ -129,37 +152,47 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-center">
                             Biography
                         </h2>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            Hi there! My name is Tyler, but most just call me Toxic or Toxic Dev. I'm a self-taught software developer, curious by nature, and an aspiring full-stack developer who's always working on improvement.
-                        </p>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            I am a Senior Software Developer specializing in Discord Bot Development. Additionally, I am a web developer specializing in front-end development, and I have extensive experience with all stages of the development cycle for dynamic web projects.
-                        </p>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            I am well-versed in numerous programming languages and have a strong background in project management, project planning, and customer relations. My passion for technology drives me to continuously learn and adapt to new challenges.
-                        </p>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            I enjoy collaborating with others and believe in the power of teamwork to achieve great results. In my spare time, I contribute to open-source projects and stay updated with the latest industry trends. My goal is to leverage my skills and knowledge to create innovative solutions that make a positive impact.
-                        </p>
+                        <TextReveal
+                            text="Hi there! My name is Tyler, but most just call me
+                            Toxic or Toxic Dev. I'm a self-taught software
+                            developer, curious by nature, and an aspiring
+                            full-stack developer who's always working on
+                            improvement."
+                        />
+                        <TextReveal
+                            text="I am a Senior Software Developer specializing in
+                            Discord Bot Development. Additionally, I am a web
+                            developer specializing in front-end development, and
+                            I have extensive experience with all stages of the
+                            development cycle for dynamic web projects."
+                        />
+
+                        <TextReveal
+                            text=" I am well-versed in numerous programming languages
+                            and have a strong background in project management,
+                            project planning, and customer relations. My passion
+                            for technology drives me to continuously learn and
+                            adapt to new challenges."
+                        />
+                        <TextReveal
+                            text="I enjoy collaborating with others and believe in the
+                            power of teamwork to achieve great results. In my
+                            spare time, I contribute to open-source projects and
+                            stay updated with the latest industry trends. My
+                            goal is to leverage my skills and knowledge to
+                            create innovative solutions that make a positive
+                            impact."
+                        />
                     </>
                 );
             case "Public Repositories":
                 if (loading) {
-                    return <p className="text-lg md:text-xl lg:text-2xl mb-4">Loading repositories...</p>;
+                    return (
+                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
+                            Loading repositories...
+                        </p>
+                    );
                 }
-                const filteredRepos = applyFilters(repos);
-                const languageOptions = [
-                    { value: "", label: "All Languages" },
-                    ...Array.from(new Set(repos.map(repo => repo.language))).map(language => ({
-                        value: language,
-                        label: language
-                    }))
-                ];
-                const sortOptions = [
-                    { value: "", label: "Sort By" },
-                    { value: "stars", label: "Stars" },
-                    { value: "forks", label: "Forks" }
-                ];
                 return (
                     <>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-center">
@@ -167,13 +200,21 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
                         </h2>
                         <div className="flex space-x-4 mb-4 mt-4">
                             <CustomSelect
-                                value={languageOptions.find(option => option.value === filter) || null}
+                                value={
+                                    languageOptions.find(
+                                        (option) => option.value === filter
+                                    ) || null
+                                }
                                 onChange={handleFilterChange}
                                 options={languageOptions}
                                 placeholder="Filter by Language"
                             />
                             <CustomSelect
-                                value={sortOptions.find(option => option.value === sortBy) || null}
+                                value={
+                                    sortOptions.find(
+                                        (option) => option.value === sortBy
+                                    ) || null
+                                }
                                 onChange={handleSortChange}
                                 options={sortOptions}
                                 placeholder="Sort By"
@@ -181,17 +222,32 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
                         </div>
                         <RepoGrid>
                             {filteredRepos.map((repo) => (
-                                <RepoGridItem key={repo.name} repo={repo} />
+                                <RepoGridItem
+                                    key={repo.name}
+                                    repo={{
+                                        ...repo,
+                                        stars: repo.stargazers_count,
+                                        forks: repo.forks_count,
+                                    }}
+                                />
                             ))}
                         </RepoGrid>
                     </>
                 );
             case "GitHub Stats":
                 if (loading) {
-                    return <p className="text-lg md:text-xl lg:text-2xl mb-4">Loading statistics...</p>;
+                    return (
+                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
+                            Loading github statistics...
+                        </p>
+                    );
                 }
                 if (!stats) {
-                    return <p className="text-lg md:text-xl lg:text-2xl mb-4">No statistics available.</p>;
+                    return (
+                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
+                            No statistics available.
+                        </p>
+                    );
                 }
                 return (
                     <>
@@ -210,9 +266,7 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
 
     return (
         <div className="py-20 px-4 md:px-8 lg:px-16 bg-black-100 z-10 w-full">
-            <div className="max-w-4xl mx-auto">
-                {renderContent()}
-            </div>
+            <div className="max-w-4xl mx-auto">{renderContent()}</div>
         </div>
     );
 };

@@ -8,7 +8,10 @@ type AboutHeroProps = {
     onSelectCategory: (category: string) => void;
 };
 
-const AboutHero: React.FC<AboutHeroProps> = ({ selectedCategory, onSelectCategory }) => {
+const AboutHero: React.FC<AboutHeroProps> = ({
+    selectedCategory,
+    onSelectCategory,
+}) => {
     const categories = ["Biography", "Public Repositories", "GitHub Stats"];
 
     return (
@@ -21,7 +24,7 @@ const AboutHero: React.FC<AboutHeroProps> = ({ selectedCategory, onSelectCategor
                 <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center md:flex-row md:items-start">
                     <img
                         src="/logo.png"
-                        alt="Your Name"
+                        alt="Toxic"
                         className="w-32 h-32 md:w-48 md:h-48 rounded-full mb-4 md:mb-0 md:mr-8"
                     />
                     <div className="flex flex-col items-center md:items-start">
@@ -30,13 +33,18 @@ const AboutHero: React.FC<AboutHeroProps> = ({ selectedCategory, onSelectCategor
                             words="About Me"
                         />
                         <p className="text-center md:text-left md:tracking-wider mb-4 text-sm md:text-lg lg:text-lg">
-                            Curious by Nature Full-Stack Software Developer who's always aiming for improvement
+                            Curious by Nature Full-Stack Software Developer
+                            who's always aiming for improvement
                         </p>
                         <div className="flex space-x-4 mt-4">
                             {categories.map((category) => (
                                 <button
                                     key={category}
-                                    className={`px-4 py-2 rounded-lg ${selectedCategory === category ? 'bg-black-200 text-white' : 'bg-black-300 text-white'}`}
+                                    className={`px-4 py-2 rounded-lg ${
+                                        selectedCategory === category
+                                            ? "bg-black-200 text-white"
+                                            : "bg-black-300 text-white"
+                                    }`}
                                     onClick={() => onSelectCategory(category)}
                                 >
                                     {category}

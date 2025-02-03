@@ -78,12 +78,14 @@ export async function GET() {
 
         const issuesOpened = events.filter(
             (event: any) =>
-                event.type === "IssuesEvent" && event.payload.action === "opened"
+                event.type === "IssuesEvent" &&
+                event.payload.action === "opened"
         ).length;
 
         const pullRequestsOpened = events.filter(
             (event: any) =>
-                event.type === "PullRequestEvent" && event.payload.action === "opened"
+                event.type === "PullRequestEvent" &&
+                event.payload.action === "opened"
         ).length;
 
         const pullRequestsMerged = events.filter(
@@ -95,7 +97,10 @@ export async function GET() {
 
         const commits = events
             .filter((event: any) => event.type === "PushEvent")
-            .reduce((acc: number, event: any) => acc + event.payload.commits.length, 0);
+            .reduce(
+                (acc: number, event: any) => acc + event.payload.commits.length,
+                0
+            );
 
         // Fetch repositories
         const repos = await fetchREST(
@@ -103,19 +108,30 @@ export async function GET() {
         );
 
         const mostStarredRepo = repos.reduce(
-            (max: any, repo: any) => (repo.stargazers_count > max.stargazers_count ? repo : max),
+            (max: any, repo: any) =>
+                repo.stargazers_count > max.stargazers_count ? repo : max,
             repos[0]
         );
 
-        const totalStars = repos.reduce((sum: number, repo: any) => sum + repo.stargazers_count, 0);
-        const totalForks = repos.reduce((sum: number, repo: any) => sum + repo.forks_count, 0);
-        const totalWatchers = repos.reduce((sum: number, repo: any) => sum + repo.watchers_count, 0);
+        const totalStars = repos.reduce(
+            (sum: number, repo: any) => sum + repo.stargazers_count,
+            0
+        );
+        const totalForks = repos.reduce(
+            (sum: number, repo: any) => sum + repo.forks_count,
+            0
+        );
+        const totalWatchers = repos.reduce(
+            (sum: number, repo: any) => sum + repo.watchers_count,
+            0
+        );
 
         // Most used languages
         let languageCount: Record<string, number> = {};
         repos.forEach((repo: any) => {
             if (repo.language) {
-                languageCount[repo.language] = (languageCount[repo.language] || 0) + 1;
+                languageCount[repo.language] =
+                    (languageCount[repo.language] || 0) + 1;
             }
         });
 
@@ -124,12 +140,18 @@ export async function GET() {
         );
 
         // Starred repositories count
-        const starredRepos = await fetchREST(`https://api.github.com/users/${GITHUB_USERNAME}/starred`);
+        const starredRepos = await fetchREST(
+            `https://api.github.com/users/${GITHUB_USERNAME}/starred`
+        );
         const totalStarredRepos = starredRepos.length;
-        const latestStarredRepo = starredRepos[0] ? starredRepos[0].html_url : null;
+        const latestStarredRepo = starredRepos[0]
+            ? starredRepos[0].html_url
+            : null;
 
         // Fetch organizations
-        const organizations = await fetchREST(`https://api.github.com/users/${GITHUB_USERNAME}/orgs`);
+        const organizations = await fetchREST(
+            `https://api.github.com/users/${GITHUB_USERNAME}/orgs`
+        );
         const orgNames = organizations.map((org: any) => org.login);
 
         // Format API Response
@@ -142,13 +164,17 @@ export async function GET() {
             updated_at: userStats.updated_at,
             total_contributions: contributionData.totalContributions,
             total_commit_contributions:
-                graphqlData.data.user.contributionsCollection.totalCommitContributions,
+                graphqlData.data.user.contributionsCollection
+                    .totalCommitContributions,
             total_issue_contributions:
-                graphqlData.data.user.contributionsCollection.totalIssueContributions,
+                graphqlData.data.user.contributionsCollection
+                    .totalIssueContributions,
             total_pr_contributions:
-                graphqlData.data.user.contributionsCollection.totalPullRequestContributions,
+                graphqlData.data.user.contributionsCollection
+                    .totalPullRequestContributions,
             total_repo_contributions:
-                graphqlData.data.user.contributionsCollection.totalRepositoryContributions,
+                graphqlData.data.user.contributionsCollection
+                    .totalRepositoryContributions,
             contributions_by_day: contributionsByDay,
             issues_opened: issuesOpened,
             pull_requests_opened: pullRequestsOpened,
