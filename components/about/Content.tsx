@@ -5,6 +5,7 @@ import { useEffect, useState, useMemo, useCallback } from "react";
 import { RepoGrid, RepoGridItem } from "./RepoItem";
 import CustomSelect from "@/components/ui/Select";
 import StatsGridItem from "./StatsItem";
+import { TextReveal } from "@/components/ui/TextReveal";
 
 type ContentAreaProps = {
     selectedCategory: string;
@@ -151,36 +152,37 @@ const ContentArea: React.FC<ContentAreaProps> = ({ selectedCategory }) => {
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-center">
                             Biography
                         </h2>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            Hi there! My name is Tyler, but most just call me
+                        <TextReveal
+                            text="Hi there! My name is Tyler, but most just call me
                             Toxic or Toxic Dev. I'm a self-taught software
                             developer, curious by nature, and an aspiring
                             full-stack developer who's always working on
-                            improvement.
-                        </p>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            I am a Senior Software Developer specializing in
+                            improvement."
+                        />
+                        <TextReveal
+                            text="I am a Senior Software Developer specializing in
                             Discord Bot Development. Additionally, I am a web
                             developer specializing in front-end development, and
                             I have extensive experience with all stages of the
-                            development cycle for dynamic web projects.
-                        </p>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            I am well-versed in numerous programming languages
+                            development cycle for dynamic web projects."
+                        />
+
+                        <TextReveal
+                            text=" I am well-versed in numerous programming languages
                             and have a strong background in project management,
                             project planning, and customer relations. My passion
                             for technology drives me to continuously learn and
-                            adapt to new challenges.
-                        </p>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-4">
-                            I enjoy collaborating with others and believe in the
+                            adapt to new challenges."
+                        />
+                        <TextReveal
+                            text="I enjoy collaborating with others and believe in the
                             power of teamwork to achieve great results. In my
                             spare time, I contribute to open-source projects and
                             stay updated with the latest industry trends. My
                             goal is to leverage my skills and knowledge to
                             create innovative solutions that make a positive
-                            impact.
-                        </p>
+                            impact."
+                        />
                     </>
                 );
             case "Public Repositories":
