@@ -364,7 +364,7 @@ const technologies = [
             {
                 name: "Shadcn UI",
                 icon: <SiShadcnui className="w-10 h-10 text-blue-500" />,
-                link: "https://shadcn.dev/",
+                link: "https://ui.shadcn.com/",
                 description:
                     "A collection of re-usable components built using Radix UI and Tailwind CSS.",
             },
