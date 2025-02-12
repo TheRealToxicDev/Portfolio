@@ -26,8 +26,10 @@ Next.js has a layered caching approach that determines whether a request should 
 #### 1. Build-Time Caching (SSG & ISR)
 
 When using **Static Site Generation (SSG)**, Next.js pre-renders pages at build time and caches them indefinitely unless revalidated.
-	•	Pages built with getStaticProps in older Next.js versions behave this way.
-	•	In the App Router (app/ directory), static pages are cached automatically unless fetch() is explicitly configured otherwise.
+
+• Pages built with `getStaticProps` in older Next.js versions behave this way.
+
+• In the App Router (`app/ directory`), static pages are cached automatically unless `fetch()` is explicitly configured otherwise.
 
 **Incremental Static Regeneration (ISR)** allows these static pages to update dynamically while still leveraging cache:
 
