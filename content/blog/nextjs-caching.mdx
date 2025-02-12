@@ -175,7 +175,7 @@ If you overuse force-cache or long revalidation periods, users might see outdate
 
 ### Final Thoughts
 
-After experimenting with Next.js’s cache handler, I’ve found that:
+After experimenting with Next.js’s cache API, I’ve found that:
 - ✅ Using cache() can optimize repeated function calls within the same request.
 - ✅ Revalidate strategies (revalidate: X) provide a balance between performance and fresh data.
 - ✅ Manual cache invalidation (revalidatePath) is crucial for real-time updates.
