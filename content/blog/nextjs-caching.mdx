@@ -122,7 +122,7 @@ This is useful for CMS integrations where content updates need to be reflected i
 
 Server Components in Next.js naturally cache fetch requests unless cache: `'no-store'` is specified. However, when streaming large amounts of data, cache handling becomes crucial to avoid delays.
 
-Example: Fetching and streaming a large dataset efficiently with caching enabled:
+**Example**: Fetching and streaming a large dataset efficiently with caching enabled:
 
 ```jsx
 export default async function Page() {
@@ -148,13 +148,13 @@ Since this is a Server Component, the data will be cached and only refreshed eve
 
 When mixing no-store fetch requests inside an ISR page, caching can become inconsistent. If a page is statically generated but makes an SSR request inside a Server Component, it can cause hydration mismatches.
 
-- **Fix**: Use revalidate: X instead of no-store for better consistency.
+- **Fix**: Use `revalidate: X` instead of `no-store` for better consistency.
 
 #### 2. Unexpected Cache Stale Issues
 
 When caching API calls, certain headers (like authentication tokens) can prevent cache reuse.
 
-- **Fix**: Always set cache: 'no-store' for private data.
+- **Fix**: Always set `cache: 'no-store'` for private data.
 
 ```jsx
 const response = await fetch('https://api.example.com/user', {
@@ -167,7 +167,7 @@ const response = await fetch('https://api.example.com/user', {
 
 If you overuse force-cache or long revalidation periods, users might see outdated information.
 
-- **Fix**: Use revalidatePath() in API routes to refresh data dynamically.
+- **Fix**: Use `revalidatePath()` in API routes to refresh data dynamically.
 
 ### Final Thoughts
 
