@@ -1,6 +1,6 @@
 ---
-title: "Deep Dive into the Next.js Cache Handler"
-description: "A detailed breakdown of my experiments with the Next.js cache handler, including caching strategies, optimizations, and potential pitfalls."
+title: "Deep Dive into the Next.js Cache API"
+description: "A detailed breakdown of my experiments with the Next.js cache API, including caching strategies, optimizations, and potential pitfalls."
 date: "2025-02-13"
 author: "Toxic Dev"
 image: /banners/blog_post.png
@@ -13,11 +13,11 @@ tags:
 ---
 
 ## Introduction
-Deep Dive into the Next.js Cache Handler
-
 Caching is one of the most critical aspects of web performance, ensuring fast response times while reducing unnecessary backend load. Next.js, with its flexible data-fetching strategies, offers a robust caching system that can be fine-tuned for different use cases.
 
-Recently, I experimented with Next.js’s caching mechanisms, particularly the new cache() API, and explored how it interacts with data-fetching strategies like ISR, SSR, and streaming in server components. In this post, I’ll share a deep dive into how Next.js handles caching, how to optimize its behavior, and some of the pitfalls I encountered along the way.
+Recently, I experimented with Next.js’s caching mechanisms, particularly the `cache()` API, and explored how it interacts with data-fetching strategies like ISR, SSR, and streaming in server components. 
+
+In this post, I’ll share a deep dive into how Next.js handles caching, how to optimize its behavior, and some of the pitfalls I encountered along the way.
 
 ### Understanding Next.js Caching
 
