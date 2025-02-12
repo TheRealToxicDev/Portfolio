@@ -47,7 +47,9 @@ Here, Next.js will serve cached data until 60 seconds have passed, after which i
 
 #### 2. Per-Request Caching (SSR & Server Components)
 
-For **Server-Side Rendering (SSR)**, pages are generated on every request unless explicitly cached. With the App Router, caching can be controlled at the fetch level:
+For **Server-Side Rendering (SSR)**, pages are generated on every request unless explicitly cached. 
+
+With the App Router, caching can be controlled at the fetch level:
 
 ```jsx
 export async function GET() {
