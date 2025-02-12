@@ -31,7 +31,7 @@ When using **Static Site Generation (SSG)**, Next.js pre-renders pages at build 
 
 **Incremental Static Regeneration (ISR)** allows these static pages to update dynamically while still leveraging cache:
 
-```
+```jsx
 export async function GET() {
   const res = await fetch('https://api.example.com/data', {
     next: { revalidate: 60 }, // Revalidate cache every 60 seconds
@@ -47,7 +47,7 @@ Here, Next.js will serve cached data until 60 seconds have passed, after which i
 
 For **Server-Side Rendering (SSR)**, pages are generated on every request unless explicitly cached. With the App Router, caching can be controlled at the fetch level:
 
-```
+```jsx
 export async function GET() {
   const res = await fetch('https://api.example.com/data', {
     cache: 'no-store', // Disables caching
@@ -63,7 +63,7 @@ This guarantees fresh data on every request but increases load on the backend.
 
 The `cache()` API in Next.js provides an additional layer of control, allowing you to cache function results across multiple calls within the same request lifecycle:
 
-```
+```jsx
 import { cache } from 'next/cache';
 
 const getData = cache(async (id: string) => {
@@ -94,7 +94,7 @@ Next.js fetch requests support multiple caching strategies. Here’s how they di
 
 Example: Using `force-cache` to store expensive API requests in cache:
 
-```
+```jsx
 const response = await fetch('https://api.example.com/stats', {
   cache: 'force-cache',
 });
@@ -106,7 +106,7 @@ This ensures that repeated API calls within a short period won’t hit the backe
 
 While `revalidate: X` automatically refreshes data at set intervals, sometimes you need manual cache invalidation. Next.js provides a way to do this via On-Demand Revalidation:
 
-```
+```jsx
 import { revalidatePath } from 'next/cache';
 
 export async function POST(req: Request) {
@@ -123,7 +123,8 @@ This is useful for CMS integrations where content updates need to be reflected i
 Server Components in Next.js naturally cache fetch requests unless cache: `'no-store'` is specified. However, when streaming large amounts of data, cache handling becomes crucial to avoid delays.
 
 Example: Fetching and streaming a large dataset efficiently with caching enabled:
-```
+
+```jsx
 export default async function Page() {
   const data = await fetch('https://api.example.com/streamed-data', {
     next: { revalidate: 300 },
@@ -153,7 +154,8 @@ Fix: Use revalidate: X instead of no-store for better consistency.
 
 When caching API calls, certain headers (like authentication tokens) can prevent cache reuse.
 Fix: Always set cache: 'no-store' for private data.
-```
+
+```jsx
 const response = await fetch('https://api.example.com/user', {
   headers: { Authorization: `Bearer ${token}` },
   cache: 'no-store',
@@ -173,4 +175,6 @@ After experimenting with Next.js’s cache handler, I’ve found that:
 - ✅ Manual cache invalidation (revalidatePath) is crucial for real-time updates.
 - ✅ Avoid mixing SSR and ISR fetch behaviors to prevent caching conflicts.
 
-Caching in Next.js is incredibly powerful, but it requires careful tuning depending on your use case. Whether you’re building a statically optimized site or a real-time dashboard, understanding Next.js caching deeply can help you make better architectural decisions.
+Caching in Next.js is incredibly powerful, but it requires careful tuning depending on your use case. 
+
+Whether you’re building a statically optimized site or a real-time dashboard, understanding Next.js caching deeply can help you make better architectural decisions.
